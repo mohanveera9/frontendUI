@@ -2,23 +2,36 @@ import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
   final String text;
-  final VoidCallback funtion;
+  final VoidCallback function;
+  const Button({
+    super.key,
+    required this.text,
+    required this.function,
+  });
 
-   const Button({super.key, required this.text, required this.funtion, });
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: funtion,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFF4CAF50),
-        padding: const EdgeInsets.symmetric(horizontal: 125, vertical: 15),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 0),
+      child: ElevatedButton(
+        onPressed: function,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Color.fromARGB(255,30,123,179),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          padding: EdgeInsets.symmetric(vertical: 13),
         ),
-      ),
-      child:Text(
-        text,
-        style: TextStyle(fontSize: 16, color: Colors.white),
+        child: Center(
+          child: Text(
+            text,
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
+          ),
+        ),
       ),
     );
   }
